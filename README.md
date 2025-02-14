@@ -39,7 +39,9 @@ To run any of the projects locally, follow these steps:
    git clone https://github.com/frankabeike/project-portfolio.git
 2. Navigate to the project directory
    ```sh
-   cd project-portfolio/path/to/project
+   cd project-portfolio/project_dashboard
+   cd project-portfolio/project_prediction
+   cd project-portfolio/project_data_pipeline
 3. Follow the instructions in each project's README to set up and run the code.
 
 ## Usage
