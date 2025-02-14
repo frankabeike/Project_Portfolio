@@ -1,4 +1,4 @@
-# Project Portfolio
+# Project Dashboard
 
-Welcome to my project portfolio repository! This repository serves as an extension of my portfolio website and contains the code for the projects I have worked on. 
-Each project is organized into its own directory with a  README file explaining the project, its features, and how to run it.
+Welcome to the project dashboard!
+Here you can finde the Python code for the exploratory data analysis, that was done before uploading the csv files into PowerBI.
