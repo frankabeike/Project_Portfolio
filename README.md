@@ -28,8 +28,6 @@ Each project is organized into its own directory with a  README file explaining 
    - Technologies: List of technologies used.
    - [More Details](Projecct_Data_Pipeline/README.md)
 
-... (add more projects as needed)
-
 ## Installation
 
 To run any of the projects locally, follow these steps:
