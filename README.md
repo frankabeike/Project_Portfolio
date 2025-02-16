@@ -16,7 +16,7 @@ Each project is organized into its own directory with a  README file explaining 
 1. **Project Dashboard**
    - Description: Created a Dashboard in PowerBI for datasets of heart attack youth vs adult in Nigeria and America(State)
    - Technologies: Python, PowerBi
-   - [More Details](Project_Dashboard/README.md)
+   - [More Details](Project_Dashboard)
 
 2. **Project Prediction**
    - Description: Prediction Marathon running times based on my running data. Also checking to which percentile the running times belong in comparison to running times of other runners.
