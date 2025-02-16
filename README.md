@@ -55,7 +55,6 @@ This repository is licensed under the MIT License. See the [LICENSE](path/to/LIC
 If you have any questions or would like to connect, feel free to reach out:
  - Email: franka.beike1999@gmail.com
  - LinkedIn: www.linkedin.com/in/franka-sophie-beike-5060711b1
- - Portfolio: frankabeike.de
 
 Thank you for visiting my repository!
 
