@@ -1,6 +1,6 @@
 # Project Data Pipeline
 
-This repository contains a data pipeline that automates data handling tasks between AWS S3 and Snowflake using Terraform and Python. The project is divided into two main components:
+This directory contains a data pipeline that automates data handling tasks between AWS S3 and Snowflake using Terraform and Python. The project is divided into two main components:
 
 1. **Terraform Script**  
    Responsible for uploading and saving data in an AWS S3 bucket.
