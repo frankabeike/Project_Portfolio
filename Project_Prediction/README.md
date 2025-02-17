@@ -1,19 +1,19 @@
 # Project Prediction
 
-Dieses Repository enthält das Verzeichnis `Project_Prediction`, in dem zwei R-Skripte zur Vorhersage bzw. Prognose von Daten liegen.
+This directory contains two R scripts for comparing and predicting finish times of runners.
 
 ## Content
 
 - **Own_Running_Data_Analysis_and_Prediction.R**  
-  *Description:* Loading and doing an EDA of my own running data and identifying the best days to run for me and predict future running finish time like a marathon.
+  *Description:* Loading and exploring my personal running data to identify optimal training days and predict future race finish times, such as for a marathon.
 
 - **RShiny_Running_Comparison_and_Prediction.R**  
-  *Description:* Loading race finish times with its respective percentiles for the distance and gender. Creating a Shiny application where the user can check its race finish times in comparison to simiar runners in the category and also predicting race finish times based on a previous run using Riegel's formula.
+  *Description:* Loading race finish times along with their corresponding percentiles for each distance and gender category. The project includes a Shiny application that allows users to compare their finish times with those of similar runners, as well as to predict future race times based on previous performances using Riegel's formula.
 
-## Voraussetzungen
+## Prerequisites
 
-- **R** (Version 4.1.1 oder höher)  
-- Weitere benötigte R-Pakete:  
+- **R** (Version 4.1.1 or higher)  
+- Further required R packages: 
   - pacman
   - dplyr
   - DT
@@ -28,7 +28,7 @@ Dieses Repository enthält das Verzeichnis `Project_Prediction`, in dem zwei R-S
   - readxl
   - corrplot  
 
-## Installation und Nutzung
+## Installation and Usage
 
 - **Repository klonen:**
 
