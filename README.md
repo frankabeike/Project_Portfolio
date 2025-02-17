@@ -21,12 +21,12 @@ Each project is organized into its own directory with a  README file explaining 
 2. **Project Prediction**
    - Description: Prediction Marathon running times based on my running data. Also checking to which percentile the running times belong in comparison to running times of other runners.
    - Technologies: R, RShiny
-   - [More Details](Project_Prediction/README.md)
+   - [More Details](Project_Prediction)
 
 3. **Project Data Pipeline**
    - Description: A brief description of the project.
    - Technologies: List of technologies used.
-   - [More Details](Projecct_Data_Pipeline/README.md)
+   - [More Details](Projecct_Data_Pipeline)
 
 ## Installation
 
