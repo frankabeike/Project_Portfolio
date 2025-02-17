@@ -48,7 +48,7 @@ Each project has its own set of instructions for usage. Please refer to the READ
 
 ## License
 
-This repository is licensed under the MIT License. See the [LICENSE](path/to/LICENSE.md) file for more information.
+This repository is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for more information.
 
 ## Contact
 
