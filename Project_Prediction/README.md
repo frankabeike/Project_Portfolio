@@ -28,13 +28,6 @@ This directory contains two R scripts for comparing and predicting finish times 
   - readxl
   - corrplot  
 
-## Installation and Usage
-
-- **Repository klonen:**
-
-   ```bash
-   git clone https://github.com/DEIN_USERNAME/DEIN_REPOSITORY.git
-
 ## Run R-Script
 
 - **Open the scripts in RStudio or execute them directly in the R console:**
