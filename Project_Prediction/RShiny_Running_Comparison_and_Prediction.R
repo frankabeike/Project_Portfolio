@@ -5,11 +5,11 @@ library(pacman)
 pacman:: p_load(dplyr,DT,sqldf,lubridate, stringr, shiny)
 
 # Load dataset for running times data
-file_path_running <- "C:/Users/fbeik/OneDrive/Desktop/Project/running.csv"
+file_path_running <- "your/file/path.csv"
 # Read the CSV file, separating columns by semicolons and filling in missing data
 data_running <- read.csv(file_path_running, sep = ";", fill = TRUE)
 # Correct column name for 'Gender' column
-colnames(data_running)[colnames(data_running) == "ï..Gender"] <- "Gender"
+colnames(data_running)[colnames(data_running) == "Ã¯..Gender"] <- "Gender"
 # Convert Distance to numeric format, replacing commas with periods
 data_running$Distance <- as.numeric(gsub(",", ".", data_running$Distance))
 # Convert 'Time' column to seconds using the 'period_to_seconds' function and 'hms'
