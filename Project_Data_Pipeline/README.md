@@ -39,7 +39,7 @@ This repository contains a data pipeline that automates data handling tasks betw
 
 ### 3. Python Script Configuration
 
-- Open data_pipeline_ETL.py.
+- Open `data_pipeline_ETL.py`.
 - At line 13, update the path to point to the location of your .env file.
 - Ensure all credentials and file paths referenced in the script match your .env file.
 
