@@ -12,8 +12,8 @@ from sklearn.model_selection import GridSearchCV
 import xgboost as xgb
 
 # Specifying the file paths for Apple and Garmin datasets
-file_path_apple = "C:/Users/fbeik/OneDrive/Desktop/Project/Activities_Apple_FB.csv"
-file_path_garmin = "C:/Users/fbeik/OneDrive/Desktop/Project/Activities_Garmin_FB.csv"
+file_path_apple = "your/file/path.csv"
+file_path_garmin = "your/file/path.csv"
 
 # Loading the datasets from the specified file paths
 data_apple = pd.read_csv(file_path_apple, sep=";")
@@ -148,9 +148,6 @@ def robust_date_parser(date_str):
 # Applying the parser to create FormattedDate column
 data_run['FormattedDate'] = data_run['Date'].apply(robust_date_parser)
 
-# Optionally, convert to a specific string format
-#data_run['FormattedDate'] = data_run['FormattedDate'].dt.strftime('%Y-%m-%d %H:%M:%S')
-
 # checking again for null values
 null_count = data_run['FormattedDate'].isnull().sum()
 print("Number of null values in 'FormattedDate':", null_count)
@@ -160,12 +157,6 @@ data_run['Weekday'] = pd.to_datetime(data_run['FormattedDate'], format='%Y-%m-%d
 
 # Checking the results
 print(data_run[['Date', 'FormattedDate', 'Weekday']].head())
-
-
-numeric_data = data_run.select_dtypes(include=[np.number])
-
-# Display the first few rows
-print(numeric_data.head())
 
 # Selecting only the specified numeric columns
 selected_columns = ["Calories", "MaxHeartRate", "AverageHeartRate", "RelativeEffort", "TimeSeconds", "Distance", "time_in_minutes", "PacePerKM_value"]
