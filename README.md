@@ -15,17 +15,17 @@ Each project is organized into its own directory with a  README file explaining 
 
 1. **Project Dashboard**
    - Description: Created a Dashboard in PowerBI for datasets of heart attack youth vs adult in Nigeria and America(State)
-   - Technologies: Python, PowerBi
+   - Tools: Python, PowerBi
    - [More Details](Project_Dashboard)
 
 2. **Project Prediction**
-   - Description: Prediction Marathon running times based on my running data. Also checking to which percentile the running times belong in comparison to running times of other runners.
-   - Technologies: R, RShiny
+   - Description: Predicting marathon running times based on personal running data. This project also identifies the percentile ranking of a user's times compared to other runners and calculates future race finish times.
+   - Tools: R, RShiny
    - [More Details](Project_Prediction)
 
 3. **Project Data Pipeline**
-   - Description: A brief description of the project.
-   - Technologies: List of technologies used.
+   - Description: Created a data pipeline that automates data handling tasks between AWS S3 and Snowflake using Terraform and Python.
+   - Tools: Terraform, AWS S3, Python, Snowflake
    - [More Details](Project_Data_Pipeline)
 
 ## Installation
