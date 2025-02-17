@@ -11,7 +11,7 @@ This repository contains a data pipeline that automates data handling tasks betw
 ## Project Structure
 
 - **terraform/**
-  - Contains the Terraform script used to create and manage AWS S3 bucket resources.
+  - Contains the Terraform script `main_S3_bucket.tf` used to create and manage AWS S3 bucket resources.
   
 - **pipeline/**
   - `data_pipeline_ETL.py`: Python script that executes the ETL process.
