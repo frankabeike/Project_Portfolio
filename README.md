@@ -26,7 +26,7 @@ Each project is organized into its own directory with a  README file explaining 
 3. **Project Data Pipeline**
    - Description: A brief description of the project.
    - Technologies: List of technologies used.
-   - [More Details](Projecct_Data_Pipeline)
+   - [More Details](Project_Data_Pipeline)
 
 ## Installation
 
