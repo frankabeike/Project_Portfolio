@@ -27,7 +27,7 @@ resource "aws_s3_bucket" "undatabucket" {
 resource "aws_s3_object" "undatacsv" {
   bucket = aws_s3_bucket.undatabucket.bucket # Referenced the bucket created earlier
   key = "data/seats_held_by_women.csv" # Path and Name of the file within the S3 bucket
-  source = "C:/Users/fbeik/Downloads/SYB67_317_202411_Seats held by women in Parliament.csv" # Patch to the local CSV file
+  source = "your/file/path.csv" # Patch to the local CSV file
   acl = "public-read" # Permissions for the file
 }
 
