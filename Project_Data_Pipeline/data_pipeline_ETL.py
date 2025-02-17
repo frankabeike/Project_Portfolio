@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 from sklearn.preprocessing import MinMaxScaler
 
 # Load variables for aws and snowflake from .env file (enter file path if .env file in another place)
-load_dotenv("C:/Users/fbeik/OneDrive/Desktop/Project/credentials.env")
+load_dotenv("your/file/path.env")
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -20,7 +20,7 @@ AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
 AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY")
 S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
 S3_FILE_KEY = os.getenv("S3_FILE_KEY")
-LOCAL_FILE_PATH = "C:/Users/fbeik/OneDrive/Desktop/Project/Seats-held-by-women-in-Parliament.csv"
+LOCAL_FILE_PATH = os.getenv("LOCAL_FILE_PATH")
 
 # Snowflake Configuration
 SNOWFLAKE_USER = os.getenv("SNOWFLAKE_USER")
@@ -30,6 +30,7 @@ SNOWFLAKE_DATABASE = os.getenv("SNOWFLAKE_DATABASE")
 SNOWFLAKE_STAGE = os.getenv("SNOWFLAKE_STAGE")
 SNOWFLAKE_SCHEMA = os.getenv("SNOWFLAKE_SCHEMA")
 SNOWFLAKE_TABLE = os.getenv("SNOWFLAKE_TABLE")
+TEMP_CSV_PATH = os.getenv('temp_csv_path')
 
 # Downloading file from AWS S3
 def extract_from_s3():
@@ -147,27 +148,26 @@ def load_to_snowflake(data):
                
         
         # Saving the dataframe temporary to csv and check that only the expected columns are in the dataframe
-        temp_csv_path = 'C:/Users/fbeik/OneDrive/Desktop/Project/Seats-held-by-women-in-Parliament-temp.csv'
         expected_columns = ['id','region_country_area', 'region_country_area_name', 'year', 'series', 
                     'last_election_date', 'last_election_date_footnote', 'percentage', 'footnotes', 
                     'source', 'normalized_value', 'processed_at']
         data = data[expected_columns]
-        data.to_csv(temp_csv_path, index = False, sep=',', quoting=1)   
+        data.to_csv(TEMP_CSV_PATH , index = False, sep=',', quoting=1)   
         
         # uploading the file to Snowflake staging area
-        cur.execute(f"PUT file://{temp_csv_path} @PARLIAMENT_STAGE")
+        cur.execute(f"PUT file://{TEMP_CSV_PATH} @PARLIAMENT_STAGE")
         logging.info("File uploaded to Snowflake staging area.")
         
         # Loading data into Snowflake table
         cur.execute(f"""
                 COPY INTO {table_name}
-                FROM @PARLIAMENT_STAGE/{os.path.basename(temp_csv_path)}
+                FROM @PARLIAMENT_STAGE/{os.path.basename(TEMP_CSV_PATH)}
                 FILE_FORMAT = (TYPE = 'CSV', SKIP_HEADER=1,FIELD_OPTIONALLY_ENCLOSED_BY = '"',NULL_IF = (''));
         """)
         logging.info("Data successfully loaded into Snowflake.")
         
         # Cleaning up the staging area
-        cur.execute(f"REMOVE @PARLIAMENT_STAGE/{os.path.basename(temp_csv_path)}")
+        cur.execute(f"REMOVE @PARLIAMENT_STAGE/{os.path.basename(TEMP_CSV_PATH)}")
         logging.info("Temporary staged file removed.")
         
         # Closing Connections
