@@ -30,14 +30,14 @@ Dieses Repository enthält das Verzeichnis `Project_Prediction`, in dem zwei R-S
 
 ## Installation und Nutzung
 
-1. **Repository klonen:**
+- **Repository klonen:**
 
    ```bash
    git clone https://github.com/DEIN_USERNAME/DEIN_REPOSITORY.git
 
 ## Run R-Script
 
-- Open the scripts in RStudio or execute them directly in the R console:
+- **Open the scripts in RStudio or execute them directly in the R console:**
 
  ```bash
    source("Own_Running_Data_Analysis_and_Prediction.R")
