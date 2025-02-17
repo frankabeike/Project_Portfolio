@@ -7,7 +7,7 @@ import numpy as np
 ### Analysis America
 
 # upload the data
-data_america = pd.read_csv("C:/Users/fbeike/Downloads/archive/heart_attack_youth_vs_adult (1).csv")
+data_america = pd.read_csv("your/file/path.csv")
 
 # Exploratory Data Analysis
 print(data_america.head())
@@ -133,7 +133,7 @@ plt.show()
 ### Analysis Nigeria
  
 # upload the data
-data_nigeria = pd.read_csv("C:/Users/fbeike/Downloads/archive (1)/heart_attack_youth_vs_adult_nigeria.csv")
+data_nigeria = pd.read_csv("your/file/path.csv")
  
 # Exploratory Data Analysis
 print(data_nigeria.head())
