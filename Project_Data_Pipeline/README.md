@@ -24,6 +24,7 @@ This directory contains a data pipeline that automates data handling tasks betwe
 
 - Navigate to the `terraform/` directory.
 - Update the Terraform configuration as needed for your AWS setup.
+- At line 30, update the path to point to the location of your .csv file.
 - Initialize and apply the Terraform script:
   ```bash
   terraform init
