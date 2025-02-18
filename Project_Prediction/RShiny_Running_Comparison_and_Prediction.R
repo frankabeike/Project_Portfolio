@@ -1,6 +1,6 @@
 # load needed libraries
 library(pacman)
-pacman:: p_load(dplyr,DT,sqldf,lubridate, stringr, shiny)
+pacman:: p_load(dplyr,DT,sqldf,lubridate, stringr, shiny, shinyBS,shinythemes)
 
 # Load dataset for running times data
 file_path_running <- "your/file/path.csv"
