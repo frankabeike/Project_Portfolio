@@ -41,6 +41,7 @@ This directory contains one R script and one python scrip for comparing and pred
 ## Run Python-Script
 
 - **Open the script for example in VS Code:**
+- 
 
     ```bash
    python Own_Running_Data_Analysis_and_Prediction.py
@@ -48,6 +49,7 @@ This directory contains one R script and one python scrip for comparing and pred
 ## Run R-Script
 
 - **Open the scripts in RStudio or execute them directly in the R console:**
+- Change the file path 
 
     ```bash
    source("RShiny_Running_Comparison_and_Prediction.R")
