@@ -36,7 +36,7 @@ This directory contains a data pipeline that automates data handling tasks betwe
 
 - In the pipeline/ directory, use the .env file.
 - Make sure to replace the placeholder values with your actual AWS and Snowflake credentials.
-- Local and Temporary File Path: In the .env file, update the local and temporary file path setting to point to the correct location on your system.
+- Local and temporary file path: In the .env file, update the local and temporary file path setting to point to the correct location on your system.
 
 ### 3. Python Script Configuration
 
@@ -57,7 +57,7 @@ This directory contains a data pipeline that automates data handling tasks betwe
 ### Dependencies
 - Terraform: Ensure Terraform is installed and configured on your machine.
 - Python: Python 3.12.0 or higher is required.
-- Python Packages:
+- Python packages:
   - Install the necessary Python packages using:
   ```bash
   pip install -r requirements.txt
