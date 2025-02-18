@@ -5,8 +5,8 @@ from sklearn.preprocessing import LabelEncoder
 import numpy as np
 
 # upload the data
-data_america = pd.read_csv("C:/Users/fbeik/OneDrive/Desktop/Project/heart_attack_youth_vs_adult (1).csv")
-data_nigeria = pd.read_csv("C:/Users/fbeike/Downloads/archive (1)/heart_attack_youth_vs_adult_nigeria.csv")
+data_america = pd.read_csv("your/file/path.csv")
+data_nigeria = pd.read_csv("your/file/path.csv")
  
 
 # defining plot functions
