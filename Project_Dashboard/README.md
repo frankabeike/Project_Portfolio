@@ -25,7 +25,7 @@ Before running the code, ensure you have the following installed:
   pip install -r requirements.txt   
 
 ## 4. Running the EDA Script
-- At line 10 and 136, update the path to point to the location of your .csv files.
+- At line 8 and 9, update the path to point to the location of your .csv files.
 - Run the eda.py script to perform the exploratory data analysis:
 
   ````bash
