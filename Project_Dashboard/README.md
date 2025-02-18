@@ -20,9 +20,13 @@ Before running the code, ensure you have the following installed:
 
 - Python 3.12.0 ir higher is required.
 - Python packages
-  - Install the necessary Python packages using:
+  - Load the necessary Python packages:
+    - Pandas
+    - seaborn
+    - matplotlib
+    - scikit-learn (for the LabelEncoder in the sklearn.preprocessing module)
    ````bash
-  pip install -r requirements.txt   
+    pip install pandas seaborn matplotlib scikit-learn
 
 ## 4. Running the EDA Script
 - At line 8 and 9, update the path to point to the location of your .csv files.
