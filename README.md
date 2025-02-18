@@ -14,7 +14,7 @@ Each project is organized into its own directory with a  README file explaining 
 ## Projects
 
 1. **Project Dashboard**
-   - Description: Created a Dashboard in PowerBI for datasets of heart attack youth vs adult in Nigeria and America(State)
+   - Description: Created a dashboard in PowerBI for datasets of heart attack youth vs adult in Nigeria and America(State)
    - Tools: Python, PowerBi
    - [More Details](Project_Dashboard)
 
@@ -40,7 +40,7 @@ To run any of the projects locally, follow these steps:
    cd project-portfolio/project_dashboard
    cd project-portfolio/project_prediction
    cd project-portfolio/project_data_pipeline
-3. Follow the instructions in each project's README to set up and run the code.
+3. Follow the instructions in each project's README.md to set up and run the code.
 
 ## Usage
 
