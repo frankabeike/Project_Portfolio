@@ -49,7 +49,7 @@ This directory contains one R script and one python scrip for comparing and pred
 ## Run R-Script
 
 - **Open the scripts in RStudio or execute them directly in the R console:**
-- Change the file path 
+- At line 6, update the path to point to the location of your .csv file. 
 
     ```bash
    source("RShiny_Running_Comparison_and_Prediction.R")
