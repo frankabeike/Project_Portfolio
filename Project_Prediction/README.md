@@ -41,7 +41,7 @@ This directory contains one R script and one python scrip for comparing and pred
 ## Run Python-Script
 
 - **Open the script for example in VS Code:**
-- 
+- At line 15 and 16, update the path to point to the location of your .csv files.
 
     ```bash
    python Own_Running_Data_Analysis_and_Prediction.py
