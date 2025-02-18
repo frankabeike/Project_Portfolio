@@ -1,5 +1,3 @@
-# install pacman
-install.packages('pacman')
 # load needed libraries
 library(pacman)
 pacman:: p_load(dplyr,DT,sqldf,lubridate, stringr, shiny)
