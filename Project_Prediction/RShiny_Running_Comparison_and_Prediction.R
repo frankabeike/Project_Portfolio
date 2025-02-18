@@ -21,48 +21,91 @@ riegel_predict <- function(TimeShortDistance, ShortDistance, LongDistance, expon
   TimeLongDistance <- TimeShortDistance * (LongDistance / ShortDistance)^exponent
   return(TimeLongDistance)
 }
+# Function to calculate pace per km (mm:ss) given time in seconds and distance in km
+calculate_pace <- function(Time_Seconds, Distance) {
+  time_minutes <- Time_Seconds / 60 # convert seconds to minutes
+  pace_value <- time_minutes / Distance # Calculate the pace (minutes per kilometer)
+  pace_minutes <- floor(pace_value) # Extract whole minutes
+  pace_seconds <- round((pace_value - pace_minutes)*60) # Calculate remaining seconds
+  # Adjust in case rounding makes seconds = 60
+  if (pace_seconds == 60) {
+    pace_minutes <- pace_minutes + 1
+    pace_seconds <- 0
+  }
+  sprintf("%02d:%02d",pace_minutes,pace_seconds) # Format as MM:SS
+}
 
 
 # Define UI for Shiny application
-ui <- fluidPage(
-  titlePanel("Running Percentile Calculator"), # Title of the application
+ui <- navbarPage(
+  title = "Running Performance App",  # Navbar title
+  theme = shinytheme("sandstone"),       # Apply a theme
   
-  # Sidebar layout with input controls for selecting distance, gender, and inputting time
-  sidebarLayout(
-    sidebarPanel(
-      selectInput("distance", "Select Distance", choices = distance_labels), # Dropdown menu for selecting running distance
-      selectInput("gender", "Select Gender", choices = c("All", "Female", "Male")), # Dropdown menu for selecting gender
-      numericInput("hours", "Hours", value = 0, min = 0), # Numeric input for entering hours
-      numericInput("minutes", "Minutes", value = 0, min = 0, max = 59), # Numeric input for entering minutes
-      numericInput("seconds", "Seconds", value = 0, min = 0, max = 59), # Numeric input for entering seconds for the time
-      actionButton("calculate", "Calculate Percentile") # Action button to calculate the percentile
-    ),
-    # Main panel for displaying results and outputs
-    mainPanel(
-      verbatimTextOutput("result"), # Display percentile result
-      verbatimTextOutput("summary_text"), # Display Summary of Finish Time 
-      textOutput("text"), # Display title of table
-      tableOutput("table") # Display table with percentile and times
-    )
+  # First Tab - About
+  tabPanel("About",
+           fluidPage(
+             h3("Running Performance App"),
+             p("This app helps runners analyze their percentile ranking and predict race times using Riegel's formula."),
+             p("Select your distance, enter your time, and find out how you compare to others."),
+             p("Enjoy!")
+           )
   ),
-  # Second sidebar layout for predicting time using Riegel's formula
-  sidebarLayout(
-    sidebarPanel(
-      numericInput("shortest_distance", "Enter Shortest Distance (km)", value = 5, min = 1), # Numeric inputs for entering shortest distance
-      numericInput("shortest_hours", "Shortest Distance Hours", value = 0, min = 0), # Numeric inputs for entering hours
-      numericInput("shortest_minutes", "Shortest Distance Minutes", value = 0, min = 0, max = 59), # Numeric inputs for entering minutes
-      numericInput("shortest_seconds", "Shortest Distance Seconds", value = 0, min = 0, max = 59), # Numeric inputs for entering seconds
-      selectInput("predicted_distance", "Select Predicted Distance", choices = distance_labels), # Dropdown menu for selecting the predicted distance
-      actionButton("predict", "Predict Time") # Action button to predict time based on Riegel's formula
+  
+  # Second Tab - Percentile Calculator
+  tabPanel("Percentile Calculator", # Title of the application
+    
+    # Sidebar layout with input controls for selecting distance, gender, and inputting time
+    sidebarLayout(
+      sidebarPanel(
+        selectInput("distance", "Select Distance", choices = distance_labels), # Dropdown menu for selecting running distance
+        bsTooltip("distance", "Choose a race distance.", "right"),
+        selectInput("gender", "Select Gender", choices = c("All", "Female", "Male")), # Dropdown menu for selecting gender
+        bsTooltip("gender", "Select your gender to compare against similar runners.", "right"),
+        numericInput("hours", "Hours", value = 0, min = 0), # Numeric input for entering hours
+        bsTooltip("hours", "Input the hours of your finish time for the selected race distance.", "right"),
+        numericInput("minutes", "Minutes", value = 0, min = 0, max = 59), # Numeric input for entering minutes
+        bsTooltip("minutes", "Input the minutes of your finish time for the selected race distance.", "right"),
+        numericInput("seconds", "Seconds", value = 0, min = 0, max = 59), # Numeric input for entering seconds for the time
+        bsTooltip("seconds", "Input the seconds of your finish time for the selected race distance.", "right"),
+        actionButton("calculate", "Calculate Percentile") # Action button to calculate the percentile
+      ),
+      # Main panel for displaying results and outputs
+      mainPanel(
+        verbatimTextOutput("result"), # Display percentile result
+        verbatimTextOutput("summary_text"), # Display Summary of Finish Time 
+        verbatimTextOutput("pace"), # Display pace per Km
+        textOutput("text"), # Display title of table
+        tableOutput("table") # Display table with percentile and times
+      ))
     ),
-    # Main panel for displaying predicted time and percentile table
-    mainPanel(
-      verbatimTextOutput("predicted_time"), # Display predicted time
-      textOutput("text_predict"), # Display title of table
-      tableOutput("table_predict") # Display table with percentile and times
+    # Third Tab - Time Prediction using Riegel's formula
+  tabPanel("Time Prediction",
+    sidebarLayout(
+      sidebarPanel(
+        numericInput("shortest_distance", "Enter Shortest Distance (km)", value = 5, min = 1), # Numeric inputs for entering shortest distance
+        bsTooltip("shortest_distance", "Enter the known shorter race distance.", "right"),
+        numericInput("shortest_hours", "Shortest Distance Hours", value = 0, min = 0), # Numeric inputs for entering hours
+        bsTooltip("shortest_hours", "Enter the hours of your finish time for the shorter race.", "right"),
+        numericInput("shortest_minutes", "Shortest Distance Minutes", value = 0, min = 0, max = 59), # Numeric inputs for entering minutes
+        bsTooltip("shortest_minutes", "Enter the minutes of your finish time for the shorter race.", "right"),
+        numericInput("shortest_seconds", "Shortest Distance Seconds", value = 0, min = 0, max = 59), # Numeric inputs for entering seconds
+        bsTooltip("shortest_seconds", "Enter the seconds of your finish time for the shorter race.", "right"),
+        selectInput("predicted_distance", "Select Predicted Distance", choices = distance_labels), # Dropdown menu for selecting the predicted distance
+        bsTooltip("predicted_distance", "Choose a longer race distance for which you want to estimate your finish time.", "right"),
+        actionButton("predict", "Predict Time") # Action button to predict time based on Riegel's formula
+      ),
+      # Main panel for displaying predicted time and percentile table
+      mainPanel(
+        verbatimTextOutput("predicted_time"), # Display predicted time
+        verbatimTextOutput("predicted_pace"), # Display of average pace needed to reach predicted time
+        textOutput("text_predict"), # Display title of table
+        tableOutput("table_predict") # Display table with percentile and times
+    )
+  
     )
   )
 )
+
 
 # Define Server logic
 server <- function(input, output) {
@@ -86,6 +129,9 @@ server <- function(input, output) {
     # Convert the user input from time to seconds
     user_time <- (input$hours * 3600) + (input$minutes * 60) + input$seconds
     
+    # calculating user's pace per km using the function
+    user_pace <- calculate_pace(user_time,as.numeric(input$distance))
+    
     # Extract percentile number (numeric value) from the Percentile column for later calculation
     run_data <- run_data %>% mutate(Percentile_Number = as.numeric(str_extract(Percentile, "\\d+")))
     # Calculate the user's percentile based on their input time
@@ -105,14 +151,18 @@ server <- function(input, output) {
     })
     
     # Display the distance and gender for the user's input
-    output$text <- renderText(
+    output$text <- renderText({
       paste(input$gender, names(distance_labels)[match(as.numeric(input$distance), distance_labels)]," Finish Times")
-    )
+    })
     
     # Display a summary of the user's finish time
-    output$summary_text <- renderText(
+    output$summary_text <- renderText({
       paste("Your Finish Time:", sprintf("%02d:%02d:%02d", input$hours, input$minutes, input$seconds))
-    )
+    })
+    
+    output$pace <- renderText({
+      paste("Your Pace per KM:",user_pace,"(MM:SS per KM)")
+    })
     
     # Display the table of percentiles and corresponding times
     output$table <- renderTable({
@@ -130,6 +180,9 @@ server <- function(input, output) {
     predicted_time <- riegel_predict(shortest_time, as.numeric(input$shortest_distance), as.numeric(input$predicted_distance))
     predicted_time_formatted <- format(as.POSIXct(predicted_time, origin = "1970-01-01", tz = "UTC"), "%H:%M:%S")
     
+    # calculating predicted pace per km using the helper function
+    predicted_pace <- calculate_pace(predicted_time,as.numeric(input$predicted_distance))
+    
     # Filter the dataset for the predicted distance and gender (all)
     run_data <- data_running %>% filter(Distance == input$predicted_distance)
     run_data <- run_data %>% filter(Gender == "All")
@@ -139,10 +192,14 @@ server <- function(input, output) {
       paste("Predicted Finish Time for", names(distance_labels)[match(as.numeric(input$predicted_distance), distance_labels)], "is", predicted_time_formatted)
     })
     
+    output$predicted_pace <- renderText({
+      paste("Required pace per KM:",predicted_pace,"(MM:SS per KM)")
+    })
+    
     # Display the distance and gender for the user's input
-    output$text_predict <- renderText(
+    output$text_predict <- renderText({
       paste("All", names(distance_labels)[match(as.numeric(input$predicted_distance), distance_labels)]," Finish Times")
-    )
+    })
     
     # Display the table of percentiles and corresponding times for the predicted distance
     output$table_predict <- renderTable({
