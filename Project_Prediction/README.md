@@ -1,6 +1,6 @@
 # Project Prediction
 
-This directory contains one R script and one python scrip for comparing and predicting finish times of runners.
+This directory contains one R script and one Python scrip for comparing and predicting finish times of runners.
 
 ## Content
 
