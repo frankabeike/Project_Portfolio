@@ -20,7 +20,7 @@ Each project is organized into its own directory with a  README file explaining 
 
 2. **Project Prediction**
    - Description: Predicting marathon running times based on personal running data. This project also identifies the percentile ranking of a user's times compared to other runners and calculates future race finish times.
-   - Tools: R, RShiny
+   - Tools: R, RShiny, Python
    - [More Details](Project_Prediction)
 
 3. **Project Data Pipeline**
