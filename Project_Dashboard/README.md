@@ -36,5 +36,3 @@ Before running the code, ensure you have the following installed:
 
   ````bash
   python ExploratoryDataAnalysis_ProjectDashboard.py
-
-
