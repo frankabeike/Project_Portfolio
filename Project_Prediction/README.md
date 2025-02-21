@@ -16,10 +16,10 @@ This directory contains one R script and one Python scrip for comparing and pred
 - Further required Python packages:
   - pandas
   - numpy
-  - python-dateutil (for the dateutil.parser module)
+  - python-dateutil (for dateutil.parser)
   - matplotlib
   - seaborn
-  - scikit-learn (for modules like LinearRegression, RandomForestRegressor, train_test_split, mean_squared_error, and GridSearchCV)
+  - scikit-learn
   - xgboost
   ```bash
    pip install pandas numpy python-dateutil matplotlib seaborn scikit-learn xgboost
